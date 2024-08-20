@@ -1,10 +1,10 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using DemoMVC.Models;
+using MVC.Models;
 
-namespace DemoMVC.Controllers;
+namespace MVC.Controllers;
 
-public class HomeController : Controllers
+public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -15,7 +15,7 @@ public class HomeController : Controllers
 
     public IActionResult Index()
     {
-        return ErrorViewModel();
+        return View();
     }
 
     public IActionResult Privacy()
