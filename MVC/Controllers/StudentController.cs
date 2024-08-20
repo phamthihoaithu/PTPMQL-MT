@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-namespace MVC.Controller;
+namespace MVC.Controllers;
 using MVC.Models;
 
 public class StudentController : Controller
@@ -7,11 +7,6 @@ public class StudentController : Controller
     public IActionResult Index()
     {
         return View();
-    }
-
-    private IActionResult View()
-    {
-        throw new NotImplementedException();
     }
 
     [HttpPost]
