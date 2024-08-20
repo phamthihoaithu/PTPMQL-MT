@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-namespace DemoMVC.Controller;
+namespace MVC.Controller;
 using MVC.Models;
 
-public class StudentController : Controllers
+public class StudentController : Controller
 {
     public IActionResult Index()
     {
