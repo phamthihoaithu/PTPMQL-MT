@@ -13,7 +13,7 @@ public class StudentController : Controller
     public IActionResult Index(string MaSinhVien, string HoTen)
     {
         string strResult = "Xin chao " + MaSinhVien + "-" + HoTen;
-        ViewBag.Info = strResult;
+        ViewBag.Student = strResult;
         return View();
     }
 }
