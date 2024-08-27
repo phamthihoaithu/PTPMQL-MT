@@ -12,7 +12,7 @@ public class StudentController : Controller
     [HttpPost]
     public IActionResult Index(string MaSinhVien, string HoTen)
     {
-        string strResult = "Xin chao " + MaSinhVien + "-" + HoTen;
+        string strResult = "Xin chao " + MaSinhVien + " - " + HoTen;
         ViewBag.Student = strResult;
         return View();
     }
