@@ -8,7 +8,7 @@ public class DemoController : Controller
         return View();
     }
     [HttpPost] //nhận dl từ View
-    //trả dl về View
+    //trả dữ liệu về View để hiển thị
     public IActionResult Index(string FullName)
     {
         string strResult = "Xin chào " + FullName;

@@ -7,10 +7,11 @@ public class PersonController : Controller
     {
         return View();
     }
+    
     [HttpPost]
     public IActionResult Index(Person ps)
     {
-        string strResult = "Xin chào " + ps.FullName + " - " + ps.DiaChi;
+        string strResult = "Xin chào " + ps.PersonID + " - " + ps.FullName + " - " + ps.DiaChi;
         ViewBag.Person = strResult;
         return View();
     }

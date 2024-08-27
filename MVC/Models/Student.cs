@@ -6,7 +6,7 @@ namespace MVC.Models;
 public class Student
 {
     [Key]
-    public int StudentID {get; set; }
-    public string? FullName {get; set; }
-    public string? Address {get; set; }
+    public int MaSinhVien {get; set; }
+    public string? HoTen {get; set; }
+    public string? DiaChi {get; set; }
 }

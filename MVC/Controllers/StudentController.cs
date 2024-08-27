@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 namespace MVC.Controllers;
 using MVC.Models;
-
 public class StudentController : Controller
 {
     public IActionResult Index()
@@ -12,7 +11,7 @@ public class StudentController : Controller
     [HttpPost]
     public IActionResult Index(string MaSinhVien, string HoTen)
     {
-        string strResult = "Xin chao " + MaSinhVien + " - " + HoTen;
+        string strResult = "Xin chào " + MaSinhVien + " - " + HoTen;
         ViewBag.Student = strResult;
         return View();
     }
