@@ -15,4 +15,6 @@ public class DemoController : Controller
         ViewBag.Demo = strResult;
         return View();
     }
+
+    //Trong Model string? cho phép null, string k cho phép null
 }
