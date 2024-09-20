@@ -1,0 +1,48 @@
+body {
+    background-color: #fc9; /* same as #ffcc99 */
+}
+h1 {
+    color: Tomato;
+    text-align: center;
+}
+  
+h2 {
+    color: #f0f; /* same as #ff00ff */
+}
+  
+h3 {
+    color: #b58; /* same as #bb5588 */
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+
+div {
+    background-color: lightblue;
+}
+
+div {
+    background: rgba(0, 128, 0, 0.3) /* Green background with 30% opacity */
+}
+
+body {
+    background-image: url("paper.gif");
+}
+
+body {
+    background-image: url("bgdesert.jpg");
+}
+
+body {
+    background-image: url("gradient_bg.png");
+    background-repeat: repeat-x;
+    background-position: right top;
+    background-attachment: fixed;
+}
+
+/* Use the shorthand property to set the background properties in one declaration */
+body {
+    background: #ffffff url("img_tree.png") no-repeat right top;
+}
