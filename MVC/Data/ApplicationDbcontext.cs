@@ -8,5 +8,6 @@ namespace MVC.Data
         {}
         public DbSet<Employee> Employee { get; set; }
         public DbSet<Enti> Enti { get; set; }
+        public DbSet<SinhVien> SinhVien { get; set; }
     }
 }

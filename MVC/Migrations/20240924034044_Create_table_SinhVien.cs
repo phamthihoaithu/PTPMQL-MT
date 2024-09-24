@@ -5,23 +5,22 @@
 namespace MVC.Migrations
 {
     /// <inheritdoc />
-    public partial class Create_table_Student : Migration
+    public partial class Create_table_SinhVien : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Student",
+                name: "SinhVien",
                 columns: table => new
                 {
-                    StudentID = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    FullName = table.Column<string>(type: "TEXT", nullable: true),
-                    Address = table.Column<string>(type: "TEXT", nullable: true)
+                    SVID = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    DC = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Student", x => x.StudentID);
+                    table.PrimaryKey("PK_SinhVien", x => x.SVID);
                 });
         }
 
@@ -29,7 +28,7 @@ namespace MVC.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Student");
+                name: "SinhVien");
         }
     }
 }
