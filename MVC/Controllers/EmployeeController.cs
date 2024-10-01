@@ -19,23 +19,6 @@ namespace MVC.Controllers
             return View(await _context.Employee.ToListAsync());
         }
 
-        public async Task<IActionResult> Details(string id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var epl = await _context.Employee
-                .FirstOrDefaultAsync(m => m.CCCD == id);
-            if (epl == null)
-            {
-                return NotFound();
-            }
-
-            return View(epl);
-        }
-
         public IActionResult Create()
         {
             return View();
