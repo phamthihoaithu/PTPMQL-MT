@@ -13,6 +13,12 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CCCD)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.HoTen)
             </th>
             <th>
@@ -24,6 +30,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCCD)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.HoTen)
             </td>

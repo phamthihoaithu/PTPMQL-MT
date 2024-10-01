@@ -4,5 +4,4 @@ namespace MVC.Models;
 public class Employee : Person
 {
     public string EmployeeID { get; set; }
-    public string FullName { get; set; }
 }

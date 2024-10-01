@@ -1,9 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MVC.Data;
 using MVC.Models;
@@ -19,13 +14,11 @@ namespace MVC.Controllers
             _context = context;
         }
 
-        // GET: Employee
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employee.ToListAsync());
         }
 
-        // GET: Employee/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -33,39 +26,34 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var employee = await _context.Employee
+            var epl = await _context.Employee
                 .FirstOrDefaultAsync(m => m.CCCD == id);
-            if (employee == null)
+            if (epl == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(epl);
         }
 
-        // GET: Employee/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Employee/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CCCD,HoTen,QueQuan")] Employee employee)
+        public async Task<IActionResult> Create(Employee epl)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(employee);
+                _context.Add(epl);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(employee);
+            return View(epl);
         }
 
-        // GET: Employee/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -73,22 +61,19 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee == null)
+            var epl = await _context.Employee.FindAsync(id);
+            if (epl == null)
             {
                 return NotFound();
             }
-            return View(employee);
+            return View(epl);
         }
 
-        // POST: Employee/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("CCCD,HoTen,QueQuan")] Employee employee)
+        public async Task<IActionResult> Edit(string id, Employee epl)
         {
-            if (id != employee.CCCD)
+            if (id != epl.CCCD)
             {
                 return NotFound();
             }
@@ -97,12 +82,12 @@ namespace MVC.Controllers
             {
                 try
                 {
-                    _context.Update(employee);
+                    _context.Update(epl);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.CCCD))
+                    if (!EmployeeExists(epl.CCCD))
                     {
                         return NotFound();
                     }
@@ -113,10 +98,9 @@ namespace MVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(employee);
+            return View(epl);
         }
 
-        // GET: Employee/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -124,25 +108,24 @@ namespace MVC.Controllers
                 return NotFound();
             }
 
-            var employee = await _context.Employee
+            var epl = await _context.Employee
                 .FirstOrDefaultAsync(m => m.CCCD == id);
-            if (employee == null)
+            if (epl == null)
             {
                 return NotFound();
             }
 
-            return View(employee);
+            return View(epl);
         }
 
-        // POST: Employee/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var employee = await _context.Employee.FindAsync(id);
-            if (employee != null)
+            var epl = await _context.Employee.FindAsync(id);
+            if (epl != null)
             {
-                _context.Employee.Remove(employee);
+                _context.Employee.Remove(epl);
             }
 
             await _context.SaveChangesAsync();
