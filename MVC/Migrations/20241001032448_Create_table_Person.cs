@@ -1,25 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+
 #nullable disable
 
 namespace MVC.Migrations
 {
     /// <inheritdoc />
-    public partial class Create_table_Employee : Migration
+    public partial class Create_table_Person : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+
             migrationBuilder.CreateTable(
-                name: "Employee",
+                name: "Person",
                 columns: table => new
                 {
-                    EmployeeID = table.Column<string>(type: "TEXT", nullable: false),
-                    FullName = table.Column<string>(type: "TEXT", nullable: false),
-                    Address = table.Column<string>(type: "TEXT", nullable: false)
+                    CCCD = table.Column<string>(type: "TEXT", nullable: false),
+                    HoTen = table.Column<string>(type: "TEXT", nullable: false),
+                    QueQuan = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employee", x => x.EmployeeID);
+                    table.PrimaryKey("PK_Person", x => x.CCCD);
                 });
         }
 
@@ -27,7 +29,8 @@ namespace MVC.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Employee");
+                name: "Person");
+
         }
     }
 }

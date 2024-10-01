@@ -1,10 +1,46 @@
-<h1>@ViewBag.Person</h1>
-<form asp-action="Index">
-    <label>Nhập ID: </label>
-    <input type = "text" name = "PersonID">
-    <label>Nhập họ tên: </label>
-    <input type = "text" name = "FullName">
-    <label>Nhập địa chỉ: </label>
-    <input type = "text" name = "DiaChi">
-    <input type = "submit" value = "Send">
-</form> 
+@model IEnumerable<MVC.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Person</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CCCD)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoTen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QueQuan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCCD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QueQuan)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CCCD">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.CCCD">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.CCCD">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

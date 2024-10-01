@@ -16,39 +16,31 @@ namespace MVC.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
 
-            modelBuilder.Entity("MVC.Models.Employee", b =>
+            modelBuilder.Entity("MVC.Models.Person", b =>
                 {
-                    b.Property<string>("EmployeeID")
+                    b.Property<string>("CCCD")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(8)
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("HoTen")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("QueQuan")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("EmployeeID");
+                    b.HasKey("CCCD");
 
-                    b.ToTable("Employee");
-                });
+                    b.ToTable("Person");
 
-            modelBuilder.Entity("MVC.Models.Enti", b =>
-                {
-                    b.Property<string>("EntiID")
-                        .HasColumnType("TEXT");
+                    b.HasDiscriminator().HasValue("Person");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("EntiID");
-
-                    b.ToTable("Enti");
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("MVC.Models.SinhVien", b =>
@@ -67,6 +59,13 @@ namespace MVC.Migrations
                     b.HasKey("SVID");
 
                     b.ToTable("SinhVien");
+                });
+
+            modelBuilder.Entity("MVC.Models.Employee", b =>
+                {
+                    b.HasBaseType("MVC.Models.Person");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 #pragma warning restore 612, 618
         }

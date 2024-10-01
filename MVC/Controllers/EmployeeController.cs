@@ -34,7 +34,7 @@ namespace MVC.Controllers
             }
 
             var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeID == id);
+                .FirstOrDefaultAsync(m => m.CCCD == id);
             if (employee == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EmployeeID,FullName,Address")] Employee employee)
+        public async Task<IActionResult> Create([Bind("CCCD,HoTen,QueQuan")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace MVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("EmployeeID,FullName,Address")] Employee employee)
+        public async Task<IActionResult> Edit(string id, [Bind("CCCD,HoTen,QueQuan")] Employee employee)
         {
-            if (id != employee.EmployeeID)
+            if (id != employee.CCCD)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace MVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!EmployeeExists(employee.EmployeeID))
+                    if (!EmployeeExists(employee.CCCD))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace MVC.Controllers
             }
 
             var employee = await _context.Employee
-                .FirstOrDefaultAsync(m => m.EmployeeID == id);
+                .FirstOrDefaultAsync(m => m.CCCD == id);
             if (employee == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace MVC.Controllers
 
         private bool EmployeeExists(string id)
         {
-            return _context.Employee.Any(e => e.EmployeeID == id);
+            return _context.Employee.Any(e => e.CCCD == id);
         }
     }
 }

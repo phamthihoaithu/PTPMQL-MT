@@ -9,6 +9,7 @@ public class HomeController : Controller
     {
         _logger = logger;
     }
+    //hiển thị trên View
     public IActionResult Index()
     {
         return View();
@@ -18,7 +19,8 @@ public class HomeController : Controller
     {
         return View();
     }
-    [HttpPost] 
+    [HttpPost] //nhận dl từ View
+    //trả dữ liệu về View để hiển thị
     public IActionResult Demo(string FullName)
     {
         string strResult = "Xin chào " + FullName;
@@ -35,4 +37,6 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    //Trong Model string? cho phép null, string k cho phép null
 }

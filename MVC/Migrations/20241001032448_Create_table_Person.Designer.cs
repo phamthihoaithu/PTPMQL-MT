@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240917062734_Create_table_Enti")]
-    partial class Create_table_Enti
+    [Migration("20241001032448_Create_table_Person")]
+    partial class Create_table_Person
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,40 +19,42 @@ namespace MVC.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.8");
 
-            modelBuilder.Entity("MVC.Models.Employee", b =>
+            modelBuilder.Entity("MVC.Models.Person", b =>
                 {
-                    b.Property<string>("EmployeeID")
+                    b.Property<string>("CCCD")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Address")
+                    b.Property<string>("HoTen")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("QueQuan")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("EmployeeID");
+                    b.HasKey("CCCD");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Person");
                 });
 
-            modelBuilder.Entity("MVC.Models.Enti", b =>
+            modelBuilder.Entity("MVC.Models.SinhVien", b =>
                 {
-                    b.Property<string>("EntiID")
+                    b.Property<string>("SVID")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Address")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("FullName")
+                    b.Property<string>("DC")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("EntiID");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
-                    b.ToTable("Enti");
+                    b.HasKey("SVID");
+
+                    b.ToTable("SinhVien");
                 });
+#pragma warning restore 612, 618
         }
     }
 }

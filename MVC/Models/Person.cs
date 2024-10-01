@@ -3,7 +3,7 @@ namespace MVC.Models;
 public class Person
 {
     [Key]
-    public string? PersonID { get; set; }
-    public string? FullName { get; set; }
-    public string? DiaChi { get; set; }
-}
+    public string CCCD { get; set; }
+    public string HoTen { get; set; }
+    public string QueQuan { get; set; }
+}  
