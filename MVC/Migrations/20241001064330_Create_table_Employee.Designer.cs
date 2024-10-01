@@ -73,7 +73,8 @@ namespace MVC.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("SDT")
-                        .HasColumnType("INTEGER");
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.HasDiscriminator().HasValue("Employee");
                 });

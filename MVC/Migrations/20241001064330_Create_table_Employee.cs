@@ -10,6 +10,12 @@ namespace MVC.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            
+            migrationBuilder.AddColumn<string>(
+                name: "EmployeeID",
+                table: "Person",
+                type: "INTEGER",
+                nullable: true);
             migrationBuilder.AddColumn<string>(
                 name: "SDT",
                 table: "Person",
@@ -20,6 +26,9 @@ namespace MVC.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "EmployeeID",
+                table: "Person");
             migrationBuilder.DropColumn(
                 name: "SDT",
                 table: "Person");
