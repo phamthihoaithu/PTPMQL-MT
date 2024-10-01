@@ -69,6 +69,9 @@ namespace MVC.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("SDT")
+                        .HasColumnType("INTEGER");
+
                     b.HasDiscriminator().HasValue("Employee");
                 });
 #pragma warning restore 612, 618

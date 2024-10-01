@@ -11,9 +11,9 @@ namespace MVC.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "EmployeeID",
+                name: "SDT",
                 table: "Person",
-                type: "TEXT",
+                type: "INTEGER",
                 nullable: true);
         }
 
@@ -21,7 +21,7 @@ namespace MVC.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "EmployeeID",
+                name: "SDT",
                 table: "Person");
         }
     }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20241001042357_Create_table_Employee")]
+    [Migration("20241001064330_Create_table_Employee")]
     partial class Create_table_Employee
     {
         /// <inheritdoc />
@@ -22,6 +22,11 @@ namespace MVC.Migrations
             modelBuilder.Entity("MVC.Models.Person", b =>
                 {
                     b.Property<string>("CCCD")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(8)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("HoTen")
@@ -66,6 +71,9 @@ namespace MVC.Migrations
                     b.Property<string>("EmployeeID")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<string>("SDT")
+                        .HasColumnType("INTEGER");
 
                     b.HasDiscriminator().HasValue("Employee");
                 });
